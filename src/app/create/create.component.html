@@ -1,0 +1,36 @@
+<div class="container mt-3">
+
+    <div class="row">
+
+        <div *ngIf="errMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{errMsg}}</strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+          <div *ngIf="successMsg" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{successMsg}}</strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+        <form [formGroup]="professorForm">
+            <div class="col-md-4 mt-2">
+                <input type="text" class="form-control" formControlName="subjectname" placeholder="Enter Subjectname">
+            </div>
+            <div class="col-md-4 mt-2">
+                <input type="text" class="form-control" formControlName="professor" placeholder="Enter Professor">
+            </div>
+            <div class="col-md-4 mt-2">
+                <input type="text" class="form-control" formControlName="mobile" placeholder="Enter Mobile Number">
+            </div>
+            <!-- <div class="col-md-4 mt-2">
+                <input type="date" class="form-control" formControlName="DATA" placeholder="Enter DateTime">
+            </div> -->
+            <div class="col-md-4 mt-2" *ngIf="!getparamid">
+                <button class="btn btn-primary bt-lg" (click)="professorSubmit()">Add Professor</button>
+            </div>
+            <div class="col-md-4 mt-2" *ngIf="getparamid" (click)="updateprofessor()">
+                <button class="btn btn-success bt-lg">Update Professor</button>
+            </div>
+        </form>
+    </div>
+</div>
